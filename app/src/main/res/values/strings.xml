@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">DungeonHero!</string>
+    <string name="cave">Enter the Cave</string>
+    <string name="tower">Climb the Tower</string>
+    <string name="water">Escape the Under Water Temple</string>
+    <string name="selected_type">Dungeon Type Selected</string>
+    <string name="game_description">Description of Dungeon</string>
+    <string name="enter_button">Enter</string>
+    <string name="info">Hero Info</string>
+    <string name="action">Action</string>
+    <string name="north">N</string>
+    <string name="east">E</string>
+    <string name="south">S</string>
+    <string name="west">W</string>
+    <string name="up">Up</string>
+    <string name="down">Down</string>
+    <string name="search">Search</string>
+    <string name="useItem">Use an Item</string>
+    <string name="search_default_result">Nothing Found</string>
+    <string name="ok">Ok</string>
+    <string name="draw">Draw</string>
+    <string name="erase">Erase</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
