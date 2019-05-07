@@ -13,6 +13,7 @@ import com.cre8ivec.ericj.dungeonhero.fragments.DescriptionFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.DrawPadFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.InfoFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.ItemsViewFragment;
+import com.cre8ivec.ericj.dungeonhero.fragments.MoveActionsFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.SearchFragment;
 import com.cre8ivec.ericj.utility.DungeonFactory.GetDungeonFactory;
 import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
@@ -47,11 +48,18 @@ public class GameActivity extends FragmentActivity {
         ft.add(R.id.fragment_manager, new DescriptionFragment()).commit();
 
 
+
+
     }
 
     private DecisionFragment decisionFragment;
+
     private DrawPadFragment drawPadFragment;
     private SearchFragment searchFragment;
+    private ItemsViewFragment itemsViewFragment;
+
+    private MoveActionsFragment moveActionsFragment;
+
 
     public void enterDungeon() {
         decisionFragment = new DecisionFragment();
@@ -65,6 +73,12 @@ public class GameActivity extends FragmentActivity {
         ft.add(R.id.decision_view, drawPadFragment).commit();
     }
 
+    public void putMoveButtonsView() {
+        moveActionsFragment = new MoveActionsFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.decision_view_actions, moveActionsFragment).commit();
+    }
+
     public void setToDraw() {
         drawPadFragment.setToDraw();
     }
@@ -73,6 +87,9 @@ public class GameActivity extends FragmentActivity {
         drawPadFragment.setToErase();
     }
 
+    public void setRoomName() {
+        decisionFragment.setRoomName();
+    }
 
     public void infoPushed() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -89,12 +106,20 @@ public class GameActivity extends FragmentActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.decision_view, drawPadFragment).commit();
         searchFragment = null;
-        decisionFragment.handleReloadDecision();
+        moveActionsFragment.handleReloadDecision();
     }
 
     public void useItemPushed() {
+        itemsViewFragment = new ItemsViewFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_manager, new ItemsViewFragment()).commit();
+        ft.replace(R.id.decision_view, itemsViewFragment).commit();
+    }
+
+    public void removeItemsView() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.decision_view, drawPadFragment).commit();
+        itemsViewFragment = null;
+        moveActionsFragment.handleReloadDecision();
     }
 
     public void monsterInRoom() {
@@ -110,8 +135,12 @@ public class GameActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-        showDecision("Leave game?");
-        decisionFragment.disableButtons();
+        if (decisionFragment == null)
+            super.onBackPressed();
+        else {
+            showDecision("Leave game?");
+            moveActionsFragment.disableButtons();
+        }
     }
 
     public void leaveGame() {
@@ -125,7 +154,7 @@ public class GameActivity extends FragmentActivity {
             ft.replace(R.id.decision_view, searchFragment).commit();
         else {
             ft.replace(R.id.decision_view, drawPadFragment).commit();
-            decisionFragment.handleReloadDecision();
+            moveActionsFragment.handleReloadDecision();
         }
     }
 }

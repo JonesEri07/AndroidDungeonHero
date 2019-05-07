@@ -66,6 +66,6 @@ public abstract class IDungeon {
 
     public Boolean getUpDownEnabled() { return upDownEnabled; }
 
-    public IItem getItemInCurrentRoom() { return currentRoom.getItem(); }
+    public Object getItemInCurrentRoom() { return currentRoom.getItem(); }
 
 }

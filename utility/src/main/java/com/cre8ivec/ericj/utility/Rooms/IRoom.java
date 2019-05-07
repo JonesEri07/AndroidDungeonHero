@@ -21,7 +21,7 @@ public abstract class IRoom {
     private IDoor downDoor;
 
     protected String name;
-    private IItem item;
+    private Object item;
     private IMonster monster;
 
     public String getName() {
@@ -250,10 +250,10 @@ public abstract class IRoom {
     }
 
     // Item methods
-    public void addItem(IItem item) { this.item = item; }
+    public void addItem(Object item) { this.item = item; }
 
-    public IItem getItem() {
-        IItem i = item;
+    public Object getItem() {
+        Object i = item;
         item = null;
         return i;
     }

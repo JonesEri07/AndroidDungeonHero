@@ -14,6 +14,7 @@ import com.cre8ivec.ericj.dungeonhero.R;
 import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
 import com.cre8ivec.ericj.utility.Heros.Hero;
 import com.cre8ivec.ericj.utility.Items.IItem;
+import com.cre8ivec.ericj.utility.Weapons.IWeapon;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,14 +35,20 @@ public class SearchFragment extends Fragment {
         IDungeon dungeon = ((GameActivity)getActivity()).getDungeon();
         Hero hero = ((GameActivity)getActivity()).getHero();
 
-        String message;
-        IItem item = dungeon.getItemInCurrentRoom();
+        String message = "Nothing found.";
+        Object item = dungeon.getItemInCurrentRoom();
         if (item != null) {
-            message = "You found a " + item.getName() + "!";
-            hero.addItem(item);
+            if (item instanceof IItem) {
+                IItem i = (IItem) item;
+                message = "You found an item!\n" + i.getName();
+                hero.addItem(i);
+            }
+            if (item instanceof IWeapon) {
+                IWeapon i = (IWeapon) item;
+                message = "You found a weapon!\n" + i.getName();
+                hero.addWeapon(i);
+            }
         }
-        else
-            message = "Nothing found.";
 
         TextView searchResult = v.findViewById(R.id.search_result);
         searchResult.setText(message);

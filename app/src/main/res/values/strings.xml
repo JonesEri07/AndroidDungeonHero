@@ -22,6 +22,10 @@
     <string name="erase">Erase</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="attack">Attack</string>
+    <string name="defend">Defend</string>
+    <string name="use_an_Item">Use Item</string>
+    <string name="flee">Flee</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

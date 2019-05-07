@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FightActionsFragment">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2">
+
+
+        <Button
+            android:id="@+id/attack"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/attack" />
+
+        <Button
+            android:id="@+id/defend"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defend" />
+
+        <Button
+            android:id="@+id/use_an_item"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/use_an_Item" />
+
+        <Button
+            android:id="@+id/flee"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flee" />
+    </GridLayout>
+
+</FrameLayout>

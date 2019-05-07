@@ -1,6 +1,7 @@
 package com.cre8ivec.ericj.utility.DungeonFactory;
 
 import com.cre8ivec.ericj.utility.Items.Apple;
+import com.cre8ivec.ericj.utility.Items.Coin;
 import com.cre8ivec.ericj.utility.Items.Key;
 import com.cre8ivec.ericj.utility.Monsters.CaveMonsters.NakedMoleBat;
 import com.cre8ivec.ericj.utility.Monsters.TowerMonsters.RabidMonk;
@@ -10,6 +11,7 @@ import com.cre8ivec.ericj.utility.Rooms.Doors.OneWayDoor;
 import com.cre8ivec.ericj.utility.Rooms.Doors.SecretDoor;
 import com.cre8ivec.ericj.utility.Rooms.Doors.UnlockedDoor;
 import com.cre8ivec.ericj.utility.Rooms.IRoom;
+import com.cre8ivec.ericj.utility.Weapons.Sword;
 
 class CaveDungeon extends IDungeon {
 
@@ -27,6 +29,7 @@ class CaveDungeon extends IDungeon {
         // r_10
         CaveRoom r_11 = (CaveRoom) r_10.addEastRoom("r_11", new UnlockedDoor());
         r_10.addMonster(new NakedMoleBat(1));
+        r_10.addItem(new Coin());
 
         // r_01
         r_01.addNorthRoom(r_11, new UnlockedDoor());
@@ -35,6 +38,9 @@ class CaveDungeon extends IDungeon {
 
         // r_11
         r_11.addMonster(new RabidMonk(1));
+        r_11.addItem(new Sword());
+
+
 //        OpenRoom r_0n1 = startRoom.addWestRoom("r_0n1");
 //
 //        OpenRoom r_20 = r_10.addNorthRoom("r_20");
