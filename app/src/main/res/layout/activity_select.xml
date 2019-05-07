@@ -25,9 +25,10 @@
 
             <Button
                 android:id="@+id/cave_button"
-                android:layout_width="170dp"
+
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:width="0dp"
                 android:background="@mipmap/cave_launcher_foreground"
                 android:text="@string/cave"
                 android:textColor="@color/paper"
@@ -35,7 +36,7 @@
 
             <Button
                 android:id="@+id/tower_button"
-
+                android:width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@mipmap/tower_launcher_foreground"
@@ -45,8 +46,7 @@
 
             <Button
                 android:id="@+id/water_button"
-
-                android:layout_width="12px"
+                android:width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:background="@mipmap/watertemple_launcher_foreground"
