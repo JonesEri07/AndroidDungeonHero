@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.cre8ivec.ericj.dungeonhero.fragments.AttackFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.ConfirmFragment;
@@ -15,9 +14,9 @@ import com.cre8ivec.ericj.dungeonhero.fragments.InfoFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.ItemsViewFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.MoveActionsFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.SearchFragment;
-import com.cre8ivec.ericj.utility.DungeonFactory.GetDungeonFactory;
-import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
-import com.cre8ivec.ericj.utility.Heros.Hero;
+import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.GetDungeonFactory;
+import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
+import com.cre8ivec.ericj.dungeonhero.utility.Heros.Hero;
 
 public class GameActivity extends FragmentActivity {
 

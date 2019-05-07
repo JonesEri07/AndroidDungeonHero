@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
-import com.cre8ivec.ericj.utility.DungeonFactory.GetDungeonFactory;
-import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
+import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
 
 /**
  * A simple {@link Fragment} subclass.

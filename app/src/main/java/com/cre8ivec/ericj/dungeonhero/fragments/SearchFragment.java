@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
-import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
-import com.cre8ivec.ericj.utility.Heros.Hero;
-import com.cre8ivec.ericj.utility.Items.IItem;
-import com.cre8ivec.ericj.utility.Weapons.IWeapon;
+import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
+import com.cre8ivec.ericj.dungeonhero.utility.Heros.Hero;
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
+import com.cre8ivec.ericj.dungeonhero.utility.Weapons.IWeapon;
 
 /**
  * A simple {@link Fragment} subclass.

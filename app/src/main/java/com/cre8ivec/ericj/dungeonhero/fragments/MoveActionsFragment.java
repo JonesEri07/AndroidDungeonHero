@@ -8,17 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
-import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
-import com.cre8ivec.ericj.utility.Heros.Hero;
-import com.cre8ivec.ericj.utility.Monsters.IMonster;
-import com.cre8ivec.ericj.utility.Rooms.Doors.IDoor;
-import com.cre8ivec.ericj.utility.Rooms.Doors.LockedDoor;
-import com.cre8ivec.ericj.utility.Rooms.IRoom;
+import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
+import com.cre8ivec.ericj.dungeonhero.utility.Monsters.IMonster;
+import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.IDoor;
+import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.LockedDoor;
+import com.cre8ivec.ericj.dungeonhero.utility.Rooms.IRoom;
 
 /**
  * A simple {@link Fragment} subclass.

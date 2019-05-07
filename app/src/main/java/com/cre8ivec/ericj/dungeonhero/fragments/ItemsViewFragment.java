@@ -3,6 +3,7 @@ package com.cre8ivec.ericj.dungeonhero.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,8 +15,8 @@ import android.widget.TextView;
 
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
-import com.cre8ivec.ericj.utility.Heros.IHero;
-import com.cre8ivec.ericj.utility.Items.IItem;
+import com.cre8ivec.ericj.dungeonhero.utility.Heros.IHero;
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
 
 import java.util.Map;
 
@@ -35,6 +36,10 @@ public class ItemsViewFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    private ImageView detailedImageView;
+    private TextView detailedTextView;
+    private Button detailedUseButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,9 +48,17 @@ public class ItemsViewFragment extends Fragment {
 
         hero = ((GameActivity)getActivity()).getHero();
 
+        detailedImageView = v.findViewById(R.id.detailed_image);
+        detailedTextView = v.findViewById(R.id.item_description);
+        detailedUseButton = v.findViewById(R.id.b_description_use);
+
+        detailedImageView.setVisibility(View.GONE);
+        detailedTextView.setVisibility(View.GONE);
+        detailedUseButton.setVisibility(View.GONE);
+
         recyclerView = v.findViewById(R.id.item_recycler_view);
 
-        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new MyAdapter(hero.getItems());
@@ -65,15 +78,30 @@ public class ItemsViewFragment extends Fragment {
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private Map<IItem, Integer> mDataset;
 
-        public class MyViewHolder extends RecyclerView.ViewHolder {
+        public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             public ImageView imageView;
-            public TextView textView;
+            //public TextView textView;
+            public TextView countTextView;
             public View layout;
             public MyViewHolder(View v) {
                 super(v);
+                v.setOnClickListener(this);
                 layout = v;
-                textView = (TextView) v.findViewById(R.id.itemName);
+                countTextView = v.findViewById(R.id.item_count);
+                //textView = (TextView) v.findViewById(R.id.itemName);
                 imageView = (ImageView) v.findViewById(R.id.itemImage);
+            }
+
+            @Override
+            public void onClick(View view) {
+                int pos = getPosition();
+                Object[] keys = mDataset.keySet().toArray();
+                IItem item = (IItem) keys[pos];
+                detailedImageView.setVisibility(View.VISIBLE);
+                detailedTextView.setVisibility(View.VISIBLE);
+                detailedUseButton.setVisibility(View.VISIBLE);
+                detailedImageView.setImageResource(item.getResource());
+
             }
         }
 
@@ -93,8 +121,13 @@ public class ItemsViewFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            //IItem[] keys = (IItem[]) mDataset.keySet().toArray();
-            holder.textView.setText("test");
+            Object[] keys =  mDataset.keySet().toArray();
+            IItem item = (IItem) keys[position];
+            holder.imageView.setImageResource(item.getResource());
+            String count = Integer.toString(mDataset.get(item));
+            holder.countTextView.setText(count);
+
+            //holder.textView.setText(item.getName());
         }
 
         @Override

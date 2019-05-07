@@ -10,9 +10,9 @@ import android.widget.Button;
 
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
-import com.cre8ivec.ericj.utility.DungeonFactory.IDungeon;
-import com.cre8ivec.ericj.utility.Heros.IHero;
-import com.cre8ivec.ericj.utility.Monsters.IMonster;
+import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
+import com.cre8ivec.ericj.dungeonhero.utility.Heros.IHero;
+import com.cre8ivec.ericj.dungeonhero.utility.Monsters.IMonster;
 
 /**
  * A simple {@link Fragment} subclass.
