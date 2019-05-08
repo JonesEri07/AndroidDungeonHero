@@ -40,6 +40,8 @@ public class ItemsViewFragment extends Fragment {
     private TextView detailedTextView;
     private Button detailedUseButton;
 
+    private IItem itemToUse;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,6 +57,13 @@ public class ItemsViewFragment extends Fragment {
         detailedImageView.setVisibility(View.GONE);
         detailedTextView.setVisibility(View.GONE);
         detailedUseButton.setVisibility(View.GONE);
+
+        detailedUseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleUseItemButton();
+            }
+        });
 
         recyclerView = v.findViewById(R.id.item_recycler_view);
 
@@ -73,6 +82,10 @@ public class ItemsViewFragment extends Fragment {
         });
 
         return v;
+    }
+
+    public void handleUseItemButton() {
+
     }
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -97,6 +110,7 @@ public class ItemsViewFragment extends Fragment {
                 int pos = getPosition();
                 Object[] keys = mDataset.keySet().toArray();
                 IItem item = (IItem) keys[pos];
+                itemToUse = item;
                 detailedImageView.setVisibility(View.VISIBLE);
                 detailedTextView.setVisibility(View.VISIBLE);
                 detailedUseButton.setVisibility(View.VISIBLE);

@@ -1,13 +1,13 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Items;
 
-import com.cre8ivec.ericj.dungeonhero.R;
 import com.cre8ivec.ericj.dungeonhero.utility.Heros.IHero;
 
-public class Key extends IItem {
-    public Key() {
-        name = "Key";
-        resource = R.drawable.key;
-        usableOnHero = false;
+public class ManaPotion extends IItem {
+
+    public ManaPotion() {
+        name = "Mana Potion";
+        //resource = R.drawable
+        usableOnHero = true;
     }
 
     @Override
