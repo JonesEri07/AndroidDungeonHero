@@ -18,6 +18,18 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+            <ProgressBar
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="200dp"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/custom_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+
+                />
+
+
             <ImageView
                 android:id="@+id/enemy_hp"
                 android:layout_width="?android:attr/progressBarCornerRadius"
