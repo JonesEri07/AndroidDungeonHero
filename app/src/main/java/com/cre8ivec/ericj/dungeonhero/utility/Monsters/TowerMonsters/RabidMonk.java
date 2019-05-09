@@ -9,6 +9,6 @@ public class RabidMonk extends IMonster {
         this.level = level;
         monsterType = ElementType.Basic;
         health = HIGH_ENEMY_HEALTH * level;
-        attack = HIGH_ENEMY_ATTACK * level;
+        attackPwr = HIGH_ENEMY_ATTACK * level;
     }
 }

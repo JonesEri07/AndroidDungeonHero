@@ -20,6 +20,12 @@
             android:gravity="center_horizontal|center_vertical"
             android:textSize="45sp" />
 
+        <ImageView
+            android:id="@+id/found_item"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+
         <Button
             android:id="@+id/b_search_ok"
             android:layout_width="match_parent"

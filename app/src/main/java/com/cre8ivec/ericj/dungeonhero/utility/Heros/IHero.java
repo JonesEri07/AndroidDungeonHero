@@ -1,6 +1,7 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Heros;
 
 import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
+import com.cre8ivec.ericj.dungeonhero.utility.Monsters.IMonster;
 import com.cre8ivec.ericj.dungeonhero.utility.Weapons.IWeapon;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ public abstract class IHero {
     Map<IItem, Integer> items;
     ArrayList<IWeapon> inventory;
     IWeapon equipedWeapon;
+    Integer health;
+    Integer maxHealth;
 
     public String getName() { return name; }
 
@@ -35,5 +38,21 @@ public abstract class IHero {
     public void equipeWeapon(IWeapon weapon) { equipedWeapon = weapon; }
 
     public IWeapon getEquipedWeapon() { return equipedWeapon; }
+
+    public Integer getHealth() {
+        return health;
+    }
+
+    public Integer getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void attack(IMonster monster) {
+        monster.takeDamage(equipedWeapon.getAttackPwr(), equipedWeapon.getElementType());
+    }
+
+    public void takeDamage(Integer attackPwr) {
+        health -= attackPwr;
+    }
 
 }

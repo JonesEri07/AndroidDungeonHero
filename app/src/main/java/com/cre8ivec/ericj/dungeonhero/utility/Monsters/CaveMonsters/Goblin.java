@@ -9,6 +9,6 @@ public class Goblin extends IMonster {
         this.level = level;
         monsterType = ElementType.Basic;
         health = MED_ENEMY_HEALTH * level;
-        attack = MED_ENEMY_ATTACK * level;
+        attackPwr = MED_ENEMY_ATTACK * level;
     }
 }

@@ -221,7 +221,8 @@ public class MoveActionsFragment extends Fragment {
     }
 
     private void handleIfMonster() {
-        IMonster mon;
+        if (dungeon.getCurrentRoom().hasMonster())
+            ((GameActivity)getActivity()).monsterInRoom();
     }
 
     private void setRoomName() { ((GameActivity)getActivity()).setRoomName(); }

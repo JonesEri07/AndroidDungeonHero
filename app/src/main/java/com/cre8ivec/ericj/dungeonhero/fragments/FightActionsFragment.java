@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
@@ -28,6 +31,8 @@ public class FightActionsFragment extends Fragment {
     private IHero hero;
     private IMonster monster;
 
+    private TextView fightMessage;
+    private ImageButton wonFightButton;
     private Button attack;
     private Button defend;
     private Button useItem;
@@ -42,6 +47,19 @@ public class FightActionsFragment extends Fragment {
         dungeon = ((GameActivity)getActivity()).getDungeon();
         hero = ((GameActivity)getActivity()).getHero();
         monster = dungeon.getCurrentRoom().getMonster();
+
+        fightMessage = v.findViewById(R.id.fightMessage);
+        setFightMessage("You encountered a " + monster.getName());
+
+        wonFightButton = v.findViewById(R.id.won_fight_button);
+        wonFightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleWonFightButton();
+            }
+        });
+        wonFightButton.setVisibility(View.GONE);
+
 
         attack = v.findViewById(R.id.attack);
         defend = v.findViewById(R.id.defend);
@@ -79,12 +97,31 @@ public class FightActionsFragment extends Fragment {
         return v;
     }
 
-    private void handleAttack() {
+    public void setFightMessage(String message) {
+        fightMessage.setText(message);
+    }
 
+    public void addMonsterMessage(String message) {
+        String prev = (String) fightMessage.getText();
+        String newMessage = prev + "\n" + message;
+        fightMessage.setText(newMessage);
+    }
+
+    public void showWonFightButton() {
+        wonFightButton.setVisibility(View.VISIBLE);
+    }
+
+    private void handleWonFightButton() {
+        ((GameActivity)getActivity()).removeAttackFragment();
+
+    }
+    private void handleAttack() {
+        setFightMessage("Hero attacks with " + hero.getEquipedWeapon().getName() + " " + hero.getEquipedWeapon().getAttackPwr() + " damage.");
+        ((GameActivity)getActivity()).heroAttacks();
     }
 
     private void handleDefend() {
-
+        ((GameActivity)getActivity()).heroDefends();
     }
 
     private void handleUseItem() {

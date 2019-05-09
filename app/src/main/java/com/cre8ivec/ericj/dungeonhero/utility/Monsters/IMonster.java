@@ -1,6 +1,7 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Monsters;
 
 import com.cre8ivec.ericj.dungeonhero.utility.ElementType;
+import com.cre8ivec.ericj.dungeonhero.utility.Heros.IHero;
 
 public abstract class IMonster {
 
@@ -17,7 +18,7 @@ public abstract class IMonster {
     protected String name;
     protected Integer level;
     protected Integer health;
-    protected Integer attack;
+    protected Integer attackPwr;
     protected ElementType monsterType;
 
     public void takeDamage(Integer damage, ElementType attackType) {
@@ -46,8 +47,11 @@ public abstract class IMonster {
         return scaler;
     }
 
+    public void attack(IHero hero) {
+        hero.takeDamage(attackPwr);
+    }
     public String getName() { return name; }
     public Integer getLevel() { return level; }
     public Integer getHealth() { return health; }
-    public Integer getAttack() { return attack; }
+    public Integer getAttackPwr() { return attackPwr; }
 }

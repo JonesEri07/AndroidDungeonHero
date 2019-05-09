@@ -10,6 +10,7 @@ import com.cre8ivec.ericj.dungeonhero.fragments.ConfirmFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.DecisionFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.DescriptionFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.DrawPadFragment;
+import com.cre8ivec.ericj.dungeonhero.fragments.FightActionsFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.InfoFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.ItemsViewFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.MoveActionsFragment;
@@ -56,9 +57,10 @@ public class GameActivity extends FragmentActivity {
     private DrawPadFragment drawPadFragment;
     private SearchFragment searchFragment;
     private ItemsViewFragment itemsViewFragment;
+    private AttackFragment attackFragment;
 
     private MoveActionsFragment moveActionsFragment;
-
+    private FightActionsFragment fightActionsFragment;
 
     public void enterDungeon() {
         decisionFragment = new DecisionFragment();
@@ -75,7 +77,13 @@ public class GameActivity extends FragmentActivity {
     public void putMoveButtonsView() {
         moveActionsFragment = new MoveActionsFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.decision_view_actions, moveActionsFragment).commit();
+        ft.replace(R.id.decision_view_actions, moveActionsFragment).commit();
+    }
+
+    public void putFightButtonsViw() {
+        fightActionsFragment = new FightActionsFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.decision_view_actions, fightActionsFragment).commit();
     }
 
     public void setToDraw() {
@@ -122,8 +130,36 @@ public class GameActivity extends FragmentActivity {
     }
 
     public void monsterInRoom() {
+        attackFragment = new AttackFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_manager, new AttackFragment()).commit();
+        ft.replace(R.id.decision_view, attackFragment).commit();
+        putFightButtonsViw();
+    }
+
+    public void removeAttackFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.decision_view, drawPadFragment).commit();
+        attackFragment = null;
+        putMoveButtonsView();
+        fightActionsFragment = null;
+
+    }
+
+    public void heroAttacks() {
+        attackFragment.heroAttacks();
+    }
+
+    public void heroDefends() {
+        attackFragment.heroDefends();
+    }
+
+    public void addMonsterMessage(String message) {
+        fightActionsFragment.addMonsterMessage(message);
+    }
+
+    public void monsterDefeated() {
+        fightActionsFragment.setFightMessage("Monster defeated!");
+        fightActionsFragment.showWonFightButton();
     }
 
     public void showDecision(String message) {

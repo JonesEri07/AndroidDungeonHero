@@ -2,6 +2,7 @@ package com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory;
 
 import com.cre8ivec.ericj.dungeonhero.utility.Items.Apple;
 import com.cre8ivec.ericj.dungeonhero.utility.Items.Coin;
+import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.EarthSlug;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.NakedMoleBat;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.TowerMonsters.RabidMonk;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.CaveRoom;
@@ -33,7 +34,7 @@ class CaveDungeon extends IDungeon {
 
 
         // r_11
-        r_11.addMonster(new RabidMonk(1));
+        r_11.addMonster(new EarthSlug(4));
         r_11.addItem(new Sword());
 
 

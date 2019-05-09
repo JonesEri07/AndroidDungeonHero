@@ -242,10 +242,17 @@ public abstract class IRoom {
         this.monster = monster;
     }
 
+    public Boolean hasMonster() {
+        if (monster != null)
+            return true;
+        return false;
+    }
     public IMonster getMonster() {
-        IMonster mon = monster;
+        return monster;
+    }
+
+    public void monsterDefeated() {
         monster = null;
-        return mon;
     }
 
     // Item methods

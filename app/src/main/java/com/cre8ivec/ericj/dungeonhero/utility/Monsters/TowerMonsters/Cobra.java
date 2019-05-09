@@ -9,6 +9,6 @@ public class Cobra extends IMonster {
         this.level = level;
         monsterType = ElementType.Basic;
         health = LOW_ENEMY_HEALTH * level;
-        attack = LOW_ENEMY_ATTACK * level;
+        attackPwr = LOW_ENEMY_ATTACK * level;
     }
 }

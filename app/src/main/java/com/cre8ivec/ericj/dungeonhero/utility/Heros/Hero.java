@@ -12,6 +12,8 @@ public class Hero extends IHero{
         items = new HashMap<>();
         inventory = new ArrayList<>();
         equipedWeapon = new Fists();
+        health = 50;
+        maxHealth = 50;
     }
 
 }
