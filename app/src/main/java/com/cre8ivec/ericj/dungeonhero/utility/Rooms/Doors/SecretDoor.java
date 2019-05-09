@@ -1,10 +1,15 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors;
 
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
+
 public class SecretDoor extends IDoor {
 
-    public SecretDoor() {
+    private IItem itemNeeded;
+
+    public SecretDoor(IItem itemNeeded) {
         visibility = false;
         openable = false;
+        this.itemNeeded = itemNeeded;
     }
 
     @Override
@@ -26,5 +31,14 @@ public class SecretDoor extends IDoor {
     public void openDoor() {
         visibility = true;
         openable = true;
+    }
+
+    @Override
+    public Boolean uses(IItem item) {
+        if (!openable && item.getName().equalsIgnoreCase(itemNeeded.getName())) {
+            openDoor();
+            return true;
+        }
+        return false;
     }
 }

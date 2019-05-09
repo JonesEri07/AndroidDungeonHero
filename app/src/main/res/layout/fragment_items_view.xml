@@ -64,6 +64,16 @@
                                 android:text="Use Item"
                                 android:background="@drawable/mybutton"/>
 
+                            <Button
+                                android:id="@+id/b_eat_item"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:text="Eat"
+                                android:background="@drawable/mybutton"/>
+
                         </LinearLayout>
 
 

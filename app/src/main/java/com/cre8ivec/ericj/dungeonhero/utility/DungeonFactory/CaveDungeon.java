@@ -7,6 +7,7 @@ import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.NakedMoleBat
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.TowerMonsters.RabidMonk;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.CaveRoom;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.LockedDoor;
+import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.SecretDoor;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.UnlockedDoor;
 import com.cre8ivec.ericj.dungeonhero.utility.Weapons.Sword;
 
@@ -27,6 +28,8 @@ class CaveDungeon extends IDungeon {
         CaveRoom r_11 = (CaveRoom) r_10.addEastRoom("r_11", new UnlockedDoor());
         r_10.addMonster(new NakedMoleBat(1));
         r_10.addItem(new Coin());
+
+        CaveRoom r_20 = (CaveRoom) r_10.addNorthRoom("R_20", new SecretDoor(new Coin()));
 
         // r_01
         r_01.addNorthRoom(r_11, new UnlockedDoor());

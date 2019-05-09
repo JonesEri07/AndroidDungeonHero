@@ -8,7 +8,7 @@ public class HealthPotion extends IItem {
     public HealthPotion() {
         name = "Health Potion";
         //resource = R.drawable
-        usableOnHero = true;
+        useOnHero = "Drink";
     }
 
     @Override

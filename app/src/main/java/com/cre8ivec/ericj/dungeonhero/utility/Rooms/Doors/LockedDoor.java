@@ -5,6 +5,7 @@ import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
 public class LockedDoor extends IDoor {
 
     private IItem itemNeeded;
+    private IDoor return_door;
 
     public LockedDoor(IItem neededItem) {
         visibility = true;
@@ -28,12 +29,25 @@ public class LockedDoor extends IDoor {
 
     @Override
     public IDoor returnDoor() {
-        return new LockedDoor(this.getItemNeeded());
+        return_door = new LockedDoor(itemNeeded);
+        return return_door;
     }
 
     @Override
     public void openDoor() {
+        // Turn other door to normal door
+        return_door = new UnlockedDoor();
+        openable = true;
 
+    }
+
+    @Override
+    public Boolean uses(IItem item) {
+        if (!openable && item.getName().equalsIgnoreCase(itemNeeded.getName())) {
+            openDoor();
+            return true;
+        }
+        return false;
     }
 
 

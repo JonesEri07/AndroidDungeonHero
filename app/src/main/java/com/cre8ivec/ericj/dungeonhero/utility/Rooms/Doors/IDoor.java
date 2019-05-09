@@ -1,5 +1,7 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors;
 
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
+
 public abstract class IDoor {
 
     Boolean visibility;
@@ -13,4 +15,6 @@ public abstract class IDoor {
     public abstract IDoor returnDoor();
 
     public abstract void openDoor();
+
+    public abstract Boolean uses(IItem item);
 }

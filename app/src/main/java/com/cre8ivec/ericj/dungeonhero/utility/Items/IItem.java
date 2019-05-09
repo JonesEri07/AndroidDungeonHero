@@ -5,11 +5,11 @@ import com.cre8ivec.ericj.dungeonhero.utility.Heros.IHero;
 public abstract class IItem {
     protected String name;
     protected Integer resource;
-    protected Boolean usableOnHero;
+    protected String useOnHero;
 
     public String getName() { return name; }
     public Integer getResource() { return resource; }
-    public Boolean isUsableOnHero() { return usableOnHero; }
+    public String isUsableOnHero() { return useOnHero; }
 
     public abstract void useOnHero(IHero hero);
 }

@@ -1,5 +1,6 @@
 package com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory;
 
+import com.cre8ivec.ericj.dungeonhero.utility.Items.Coin;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.TowerMonsters.ArachneMonkey;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.SecretDoor;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.UnlockedDoor;
@@ -14,7 +15,7 @@ class TowerDungeon extends IDungeon {
 
     @Override
     public void buildDungeon() {
-        TowerRoom r_10 = (TowerRoom) currentRoom.addNorthRoom("r_10", new SecretDoor());
+        TowerRoom r_10 = (TowerRoom) currentRoom.addNorthRoom("r_10", new SecretDoor(new Coin()));
         TowerRoom r_01 = (TowerRoom) currentRoom.addEastRoom("r_01", new UnlockedDoor());
 
         // r_10

@@ -7,7 +7,7 @@ public class ManaPotion extends IItem {
     public ManaPotion() {
         name = "Mana Potion";
         //resource = R.drawable
-        usableOnHero = true;
+        useOnHero = "Drink";
     }
 
     @Override

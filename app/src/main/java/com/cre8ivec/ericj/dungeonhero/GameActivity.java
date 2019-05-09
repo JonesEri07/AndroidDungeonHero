@@ -18,6 +18,7 @@ import com.cre8ivec.ericj.dungeonhero.fragments.SearchFragment;
 import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.GetDungeonFactory;
 import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
 import com.cre8ivec.ericj.dungeonhero.utility.Heros.Hero;
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
 
 public class GameActivity extends FragmentActivity {
 
@@ -127,6 +128,17 @@ public class GameActivity extends FragmentActivity {
         ft.replace(R.id.decision_view, drawPadFragment).commit();
         itemsViewFragment = null;
         moveActionsFragment.handleReloadDecision();
+    }
+
+    public void attemptToUseItem(IItem item) {
+        removeItemsView();
+        moveActionsFragment.attemptToUseItem(item);
+    }
+
+    public void eatItem(IItem item) {
+        hero.useItem(item);
+        item.useOnHero(hero);
+        removeItemsView();
     }
 
     public void monsterInRoom() {

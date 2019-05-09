@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.cre8ivec.ericj.dungeonhero.GameActivity;
 import com.cre8ivec.ericj.dungeonhero.R;
 import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.IMonster;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.IDoor;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.LockedDoor;
@@ -286,6 +287,22 @@ public class MoveActionsFragment extends Fragment {
             message = "Door is locked.\nUse " + uDoor.getItemNeeded().getName() + " to unlock the door.";
         }
 
+        printMessageToUser(message);
+    }
+
+    public void attemptToUseItem(IItem item) {
+        String door = dungeon.getCurrentRoom().tryToUseItem(item);
+        if (door != null) {
+            ((GameActivity)getActivity()).getHero().useItem(item);
+            printMessageToUser("Opened the " + door);
+            enableButtons();
+        }
+        else {
+            printMessageToUser("Nothing happened");
+        }
+    }
+
+    private void printMessageToUser(String message) {
         Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.TOP, 0, 0);
         toast.show();

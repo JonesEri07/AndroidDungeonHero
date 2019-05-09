@@ -7,7 +7,7 @@ public class Apple extends IItem {
     public Apple() {
         name = "Apple";
         resource = R.drawable.apple;
-        usableOnHero = true;
+        useOnHero = "Eat";
     }
 
     @Override

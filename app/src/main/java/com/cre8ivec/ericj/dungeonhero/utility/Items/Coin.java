@@ -8,7 +8,7 @@ public class Coin extends IItem {
     public Coin() {
         name = "Coin";
         resource = R.drawable.coin;
-        usableOnHero = false;
+        useOnHero = null;
     }
 
     @Override

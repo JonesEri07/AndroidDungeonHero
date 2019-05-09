@@ -39,6 +39,7 @@ public class ItemsViewFragment extends Fragment {
     private ImageView detailedImageView;
     private TextView detailedTextView;
     private Button detailedUseButton;
+    private Button useOnHeroButton;
 
     private IItem itemToUse;
 
@@ -53,15 +54,23 @@ public class ItemsViewFragment extends Fragment {
         detailedImageView = v.findViewById(R.id.detailed_image);
         detailedTextView = v.findViewById(R.id.item_description);
         detailedUseButton = v.findViewById(R.id.b_description_use);
+        useOnHeroButton = v.findViewById(R.id.b_eat_item);
 
         detailedImageView.setVisibility(View.GONE);
         detailedTextView.setVisibility(View.GONE);
         detailedUseButton.setVisibility(View.GONE);
+        useOnHeroButton.setVisibility(View.GONE);
 
         detailedUseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleUseItemButton();
+            }
+        });
+        useOnHeroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleEatItem();
             }
         });
 
@@ -85,7 +94,11 @@ public class ItemsViewFragment extends Fragment {
     }
 
     public void handleUseItemButton() {
+        ((GameActivity)getActivity()).attemptToUseItem(itemToUse);
+    }
 
+    public void handleEatItem() {
+        ((GameActivity)getActivity()).eatItem(itemToUse);
     }
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -109,12 +122,20 @@ public class ItemsViewFragment extends Fragment {
             public void onClick(View view) {
                 int pos = getPosition();
                 Object[] keys = mDataset.keySet().toArray();
-                IItem item = (IItem) keys[pos];
-                itemToUse = item;
+                itemToUse = (IItem) keys[pos];
                 detailedImageView.setVisibility(View.VISIBLE);
                 detailedTextView.setVisibility(View.VISIBLE);
                 detailedUseButton.setVisibility(View.VISIBLE);
-                detailedImageView.setImageResource(item.getResource());
+                detailedImageView.setImageResource(itemToUse.getResource());
+
+                String use = itemToUse.isUsableOnHero();
+                if (use != null) {
+                    useOnHeroButton.setVisibility(View.VISIBLE);
+                    useOnHeroButton.setText(use);
+                }
+                else {
+                    useOnHeroButton.setVisibility(View.GONE);
+                }
 
             }
         }
@@ -150,10 +171,5 @@ public class ItemsViewFragment extends Fragment {
         }
     }
 
-
-
-//    String mDrawableName = "myimageName";
-//    int resID = res.getIdentifier(mDrawableName , "drawable", getPackageName());
-//    imgView.setImageResource(resID);
 
 }

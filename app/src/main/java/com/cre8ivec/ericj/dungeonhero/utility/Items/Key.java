@@ -7,7 +7,7 @@ public class Key extends IItem {
     public Key() {
         name = "Key";
         resource = R.drawable.key;
-        usableOnHero = false;
+        useOnHero = null;
     }
 
     @Override

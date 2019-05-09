@@ -1,5 +1,6 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Rooms;
 
+import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.IMonster;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.IDoor;
 
@@ -262,6 +263,29 @@ public abstract class IRoom {
         Object i = item;
         item = null;
         return i;
+    }
+
+    public String tryToUseItem(IItem item) {
+        if (northDoor != null && northDoor.uses(item)) {
+            return "North Door";
+        }
+        else if (eastDoor != null && eastDoor.uses(item)) {
+            return "East Door";
+        }
+        else if (southDoor != null && southDoor.uses(item)) {
+            return "South Door";
+        }
+        else if (westDoor != null && westDoor.uses(item)) {
+            return "West Door";
+        }
+        else if (upDoor != null && upDoor.uses(item)) {
+            return "Up Door";
+        }
+        else if (downDoor != null && downDoor.uses(item)) {
+            return "Down Door";
+        }
+
+        return null;
     }
 }
 
