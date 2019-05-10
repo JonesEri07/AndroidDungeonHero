@@ -32,6 +32,7 @@
                 android:background="@mipmap/cave_launcher_foreground"
                 android:text="@string/cave"
                 android:textColor="@color/paper"
+                android:layout_margin="5dp"
                 android:textSize="24sp" />
 
             <Button
@@ -39,6 +40,7 @@
                 android:width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:layout_margin="5dp"
                 android:background="@mipmap/tower_launcher_foreground"
                 android:text="@string/tower"
                 android:textColor="@color/paper"
@@ -49,6 +51,7 @@
                 android:width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:layout_margin="5dp"
                 android:background="@mipmap/watertemple_launcher_foreground"
                 android:text="@string/water"
                 android:textColor="@color/paper"

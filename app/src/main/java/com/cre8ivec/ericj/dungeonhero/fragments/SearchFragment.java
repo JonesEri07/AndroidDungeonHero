@@ -43,13 +43,13 @@ public class SearchFragment extends Fragment {
             if (item instanceof IItem) {
                 IItem i = (IItem) item;
                 message = "You found an item!\n" + i.getName();
-                res = ((IItem) item).getResource();
+                res = i.getResource();
                 hero.addItem(i);
             }
             if (item instanceof IWeapon) {
                 IWeapon i = (IWeapon) item;
                 message = "You found a weapon!\n" + i.getName();
-                //TODO: add resource to weapons
+                res = i.getResource();
                 hero.addWeapon(i);
             }
         }

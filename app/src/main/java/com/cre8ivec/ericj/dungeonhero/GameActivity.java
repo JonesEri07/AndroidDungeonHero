@@ -11,6 +11,7 @@ import com.cre8ivec.ericj.dungeonhero.fragments.DecisionFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.DescriptionFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.DrawPadFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.FightActionsFragment;
+import com.cre8ivec.ericj.dungeonhero.fragments.HeroCustomizeFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.InfoFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.ItemsViewFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.MoveActionsFragment;
@@ -59,9 +60,11 @@ public class GameActivity extends FragmentActivity {
     private SearchFragment searchFragment;
     private ItemsViewFragment itemsViewFragment;
     private AttackFragment attackFragment;
+    private InfoFragment infoFragment;
 
     private MoveActionsFragment moveActionsFragment;
     private FightActionsFragment fightActionsFragment;
+    private HeroCustomizeFragment heroCustomizeFragment;
 
     public void enterDungeon() {
         decisionFragment = new DecisionFragment();
@@ -87,6 +90,12 @@ public class GameActivity extends FragmentActivity {
         ft.replace(R.id.decision_view_actions, fightActionsFragment).commit();
     }
 
+    public void putCustomizeHeroView() {
+        heroCustomizeFragment = new HeroCustomizeFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.decision_view_actions, heroCustomizeFragment).commit();
+    }
+
     public void setToDraw() {
         drawPadFragment.setToDraw();
     }
@@ -100,10 +109,19 @@ public class GameActivity extends FragmentActivity {
     }
 
     public void infoPushed() {
+        infoFragment = new InfoFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_manager, new InfoFragment()).commit();
+        ft.replace(R.id.decision_view, infoFragment).commit();
+        putCustomizeHeroView();
     }
 
+    public void closeInfo() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.decision_view, drawPadFragment).commit();
+        infoFragment = null;
+        putMoveButtonsView();
+        heroCustomizeFragment = null;
+    }
     public void searchPushed() {
         searchFragment = new SearchFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

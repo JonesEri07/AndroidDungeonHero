@@ -6,84 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HeroCustomizeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:columnCount="2">
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/bg" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <LinearLayout
-            android:layout_columnWeight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ProgressBar
-                android:id="@+id/hero_health2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:max="100"
-                android:progress="20"
-                android:progressDrawable="@drawable/custom_progress" />
-
-            <TextView
-                android:id="@+id/info_health"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="100/100" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:layout_width="0dp"
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/info_attackPwr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="AttackPwr: " />
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/apple"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
 
-                <TextView
-                    android:id="@+id/info_attackPwr_amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15" />
+
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/hero_health2"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:max="100"
+                    android:progress="20"
+                    android:progressDrawable="@drawable/custom_progress" />
 
                 <TextView
-                    android:id="@+id/info_elem_bonus"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/info_health"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Element Bonus: " />
+                    android:gravity="center"
+                    android:text="100/100" />
 
-                <TextView
-                    android:id="@+id/info_element"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Basic" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/info_attackPwr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AttackPwr: " />
+
+                    <TextView
+                        android:id="@+id/info_attackPwr_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/info_elem_bonus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Element Bonus: " />
+
+                    <TextView
+                        android:id="@+id/info_element"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Basic" />
+                </LinearLayout>
+
             </LinearLayout>
-
         </LinearLayout>
-    </GridLayout>
+
+        <Button
+            android:id="@+id/info_return_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Return" />
+
+    </LinearLayout>
+
 </FrameLayout>
