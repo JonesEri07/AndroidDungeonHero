@@ -36,8 +36,9 @@
                     android:id="@+id/imageButton"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:src="@drawable/fist"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="@color/paper"
                     android:scaleType="fitCenter"/>
 
 

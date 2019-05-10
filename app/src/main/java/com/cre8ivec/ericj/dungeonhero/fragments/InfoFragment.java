@@ -46,6 +46,7 @@ public class InfoFragment extends Fragment {
 
         hero = ((GameActivity)getActivity()).getHero();
 
+        ImageView heroFace = v.findViewById(R.id.hero_image)
 
         recyclerView = v.findViewById(R.id.info_item_recycler_view);
 

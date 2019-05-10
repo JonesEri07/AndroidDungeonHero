@@ -40,7 +40,7 @@ public class HeroCustomizeFragment extends Fragment {
 
         ImageButton weapon = v.findViewById(R.id.imageButton);
         IWeapon equiped = hero.getEquipedWeapon();
-        weapon.setImageResource(equiped.getResource());
+        //weapon.setImageResource(equiped.getResource());
 
         ProgressBar heroHealth = v.findViewById(R.id.hero_health2);
         heroHealth.setMax(hero.getMaxHealth());
