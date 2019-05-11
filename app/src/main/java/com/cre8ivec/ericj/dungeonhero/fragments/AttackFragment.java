@@ -48,9 +48,9 @@ public class AttackFragment extends Fragment {
         monster = dungeon.getCurrentRoom().getMonster();
 
         monsterImage = v.findViewById(R.id.monster_image);
-
+        monsterImage.setImageResource(R.drawable.nake_mole_bat);
         heroImage = v.findViewById(R.id.hero_image);
-
+        heroImage.setImageResource(R.drawable.warrior_back);
         monsterName = v.findViewById(R.id.monster_name);
         monsterName.setText(monster.getName());
 

@@ -3,6 +3,7 @@ package com.cre8ivec.ericj.dungeonhero.fragments;
 
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -46,7 +47,9 @@ public class InfoFragment extends Fragment {
 
         hero = ((GameActivity)getActivity()).getHero();
 
-        ImageView heroFace = v.findViewById(R.id.hero_image)
+        ImageView heroFace = v.findViewById(R.id.info_hero_image);
+        //heroFace.setImageResource(R.drawable.warrior);
+
 
         recyclerView = v.findViewById(R.id.info_item_recycler_view);
 
@@ -54,7 +57,10 @@ public class InfoFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new MyInfoAdapter(hero.getItems());
-        recyclerView.setAdapter(mAdapter);
+        if (hero.getItems().size() > 0)
+            recyclerView.setAdapter(mAdapter);
+        else
+            recyclerView.setVisibility(View.GONE);
 
         return v;
     }
@@ -112,10 +118,6 @@ public class InfoFragment extends Fragment {
             holder.imageView.setImageResource(item.getResource());
             String count = Integer.toString(mDataset.get(item));
             holder.countTextView.setText(count);
-            String use = item.isUsableOnHero();
-            if (use == null) {
-                holder.imageView.setColorFilter(Color.TRANSPARENT);
-            }
 
             //holder.textView.setText(item.getName());
         }

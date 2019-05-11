@@ -16,7 +16,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:background="@drawable/backdrop"
+                    android:backgroundTintMode="add"
+                    android:backgroundTint="#333">
 
                         <LinearLayout
                             android:layout_weight="1"
