@@ -45,6 +45,11 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"/>
+
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"

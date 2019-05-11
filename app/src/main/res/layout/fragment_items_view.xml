@@ -37,6 +37,10 @@
 
 
                         </LinearLayout>
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/darker_gray"/>
 
                         <LinearLayout
                             android:layout_weight="1"
@@ -65,7 +69,8 @@
                                 android:paddingStart="20dp"
                                 android:layout_height="wrap_content"
                                 android:text="Use Item"
-                                android:background="@drawable/mybutton"/>
+                                android:background="@drawable/mybutton"
+                                android:layout_marginBottom="10dp"/>
 
                             <Button
                                 android:id="@+id/b_eat_item"
@@ -75,6 +80,7 @@
                                 android:paddingStart="20dp"
                                 android:paddingEnd="20dp"
                                 android:text="Eat"
+                                android:layout_marginBottom="10dp"
                                 android:background="@drawable/mybutton"/>
 
                         </LinearLayout>
