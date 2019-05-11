@@ -20,6 +20,7 @@ public abstract class IMonster {
     protected Integer health;
     protected Integer attackPwr;
     protected ElementType monsterType;
+    protected Integer resource;
 
     public void takeDamage(Integer damage, ElementType attackType) {
         Double scaler = adjustDamage(attackType);
@@ -31,7 +32,7 @@ public abstract class IMonster {
     private Double adjustDamage(ElementType attackType) {
         Double scaler = 1.0;
         switch (attackType) {
-            case Basic:
+            case None:
                 ;
             case Poison:
                 ;
@@ -54,4 +55,5 @@ public abstract class IMonster {
     public Integer getLevel() { return level; }
     public Integer getHealth() { return health; }
     public Integer getAttackPwr() { return attackPwr; }
+    public Integer getResource() { return resource; }
 }

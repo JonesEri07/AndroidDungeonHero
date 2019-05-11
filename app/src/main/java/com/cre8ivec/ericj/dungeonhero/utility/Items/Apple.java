@@ -19,7 +19,7 @@ public class Apple extends IItem {
 
     @Override
     public void useOnHero(IHero hero) {
-
+        hero.heal(5);
 
     }
 }

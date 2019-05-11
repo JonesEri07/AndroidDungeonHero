@@ -48,7 +48,7 @@ public class InfoFragment extends Fragment {
         hero = ((GameActivity)getActivity()).getHero();
 
         ImageView heroFace = v.findViewById(R.id.info_hero_image);
-        //heroFace.setImageResource(R.drawable.warrior);
+        heroFace.setImageResource(hero.getResource_front());
 
 
         recyclerView = v.findViewById(R.id.info_item_recycler_view);
@@ -91,6 +91,7 @@ public class InfoFragment extends Fragment {
                     hero.useItem(item);
                     mAdapter = new MyInfoAdapter(hero.getItems());
                     recyclerView.setAdapter(mAdapter);
+                    ((GameActivity)getActivity()).setHeroHealth();
 
                 }
 

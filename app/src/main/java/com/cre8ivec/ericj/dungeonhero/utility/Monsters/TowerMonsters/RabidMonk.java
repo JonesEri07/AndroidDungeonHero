@@ -7,7 +7,7 @@ public class RabidMonk extends IMonster {
     public RabidMonk(Integer level) {
         name = "Rabid Monk";
         this.level = level;
-        monsterType = ElementType.Basic;
+        monsterType = ElementType.None;
         health = HIGH_ENEMY_HEALTH * level;
         attackPwr = HIGH_ENEMY_ATTACK * level;
     }

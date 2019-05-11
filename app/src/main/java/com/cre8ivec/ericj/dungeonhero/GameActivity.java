@@ -16,6 +16,7 @@ import com.cre8ivec.ericj.dungeonhero.fragments.InfoFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.ItemsViewFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.MoveActionsFragment;
 import com.cre8ivec.ericj.dungeonhero.fragments.SearchFragment;
+import com.cre8ivec.ericj.dungeonhero.fragments.WeaponsViewFragment;
 import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.GetDungeonFactory;
 import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
 import com.cre8ivec.ericj.dungeonhero.utility.Heros.Hero;
@@ -61,6 +62,7 @@ public class GameActivity extends FragmentActivity {
     private ItemsViewFragment itemsViewFragment;
     private AttackFragment attackFragment;
     private InfoFragment infoFragment;
+    private WeaponsViewFragment weaponsViewFragment;
 
     private MoveActionsFragment moveActionsFragment;
     private FightActionsFragment fightActionsFragment;
@@ -196,6 +198,27 @@ public class GameActivity extends FragmentActivity {
         decisionMessage = message;
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.decision_view, new ConfirmFragment()).commit();
+    }
+
+    public void toggleWeaponsView() {
+        if (weaponsViewFragment == null) {
+            weaponsViewFragment = new WeaponsViewFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.decision_view, weaponsViewFragment).commit();
+        }
+        else {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.decision_view, infoFragment).commit();
+            weaponsViewFragment = null;
+        }
+    }
+
+    public void equipWeapon() {
+        heroCustomizeFragment.setEquipedWeapon();
+    }
+
+    public void setHeroHealth() {
+        heroCustomizeFragment.setHeroHealth();
     }
 
     @Override

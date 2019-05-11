@@ -13,6 +13,6 @@ public class HealthPotion extends IItem {
 
     @Override
     public void useOnHero(IHero hero) {
-
+        hero.heal(20);
     }
 }

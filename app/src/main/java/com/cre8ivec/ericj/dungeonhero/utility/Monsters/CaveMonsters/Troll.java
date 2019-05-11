@@ -7,7 +7,7 @@ public class Troll extends IMonster {
     public Troll(Integer level) {
         name = "Troll";
         this.level = level;
-        monsterType = ElementType.Basic;
+        monsterType = ElementType.None;
         health = HIGH_ENEMY_HEALTH * level;
         attackPwr = HIGH_ENEMY_ATTACK * level;
     }

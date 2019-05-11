@@ -7,7 +7,7 @@ public class Goblin extends IMonster {
     public Goblin(Integer level) {
         name = "Goblin";
         this.level = level;
-        monsterType = ElementType.Basic;
+        monsterType = ElementType.None;
         health = MED_ENEMY_HEALTH * level;
         attackPwr = MED_ENEMY_ATTACK * level;
     }

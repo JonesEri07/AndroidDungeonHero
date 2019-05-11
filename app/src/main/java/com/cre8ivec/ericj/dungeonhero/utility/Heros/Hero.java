@@ -1,5 +1,6 @@
 package com.cre8ivec.ericj.dungeonhero.utility.Heros;
 
+import com.cre8ivec.ericj.dungeonhero.R;
 import com.cre8ivec.ericj.dungeonhero.utility.Weapons.Fists;
 
 import java.util.ArrayList;
@@ -14,6 +15,9 @@ public class Hero extends IHero{
         equipedWeapon = new Fists();
         health = 50;
         maxHealth = 50;
+        resource_back = R.drawable.warrior_back;
+        resource_front = R.drawable.warrior;
+
     }
 
 }

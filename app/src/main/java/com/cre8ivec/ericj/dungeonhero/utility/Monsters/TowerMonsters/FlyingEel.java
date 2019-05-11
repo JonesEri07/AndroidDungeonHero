@@ -7,7 +7,7 @@ public class FlyingEel extends IMonster {
     public FlyingEel(Integer level) {
         name = "Flying Eel";
         this.level = level;
-        monsterType = ElementType.Basic;
+        monsterType = ElementType.None;
         health = LOW_ENEMY_HEALTH * level;
         attackPwr = LOW_ENEMY_ATTACK * level;
     }
