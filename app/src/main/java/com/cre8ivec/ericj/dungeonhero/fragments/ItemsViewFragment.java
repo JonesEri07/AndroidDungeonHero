@@ -93,6 +93,8 @@ public class ItemsViewFragment extends Fragment {
         return v;
     }
 
+    //TODO: Maybe don't switch fragments, instead display toast if anything happened.
+
     public void handleUseItemButton() {
         ((GameActivity)getActivity()).attemptToUseItem(itemToUse);
     }

@@ -8,7 +8,7 @@ public class Fists extends IWeapon {
     public Fists() {
         name = "Fists";
         attackPwr = 5;
-        elementType = ElementType.Basic;
+        elementType = ElementType.None;
         resource = R.drawable.fist;
     }
 }

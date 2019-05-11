@@ -7,7 +7,7 @@ public class ArachneMonkey extends IMonster {
     public ArachneMonkey(Integer level) {
         name = "Arachne Monkey";
         this.level = level;
-        monsterType = ElementType.Basic;
+        monsterType = ElementType.None;
         health = MED_ENEMY_HEALTH * level;
         attackPwr = MED_ENEMY_ATTACK * level;
     }

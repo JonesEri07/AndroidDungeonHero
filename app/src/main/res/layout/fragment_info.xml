@@ -18,7 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:src="@android:drawable/sym_def_app_icon" />
+            android:src="@drawable/warrior"
+            android:background="@drawable/backdrop"
+            android:paddingBottom="0dp"/>
 
         <view
             android:id="@+id/info_item_recycler_view"

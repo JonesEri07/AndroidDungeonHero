@@ -32,7 +32,7 @@
             android:id="@+id/decision_view_actions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.5">
+            android:layout_weight="2">
 
         </FrameLayout>
 

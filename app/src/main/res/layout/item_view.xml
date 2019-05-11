@@ -16,14 +16,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                app:layout_constraintDimensionRatio="1:1"/>
+                app:layout_constraintDimensionRatio="1:1"
+                android:background="@color/paper"
+                android:backgroundTintMode="add"
+                android:backgroundTint="#333"
+                />
 
             <TextView
                 android:id="@+id/item_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="HERE" />
+
+                android:layout_alignBottom="@+id/itemImage"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/white"
+                android:text="HERE"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

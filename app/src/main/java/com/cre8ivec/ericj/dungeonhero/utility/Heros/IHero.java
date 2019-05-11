@@ -15,6 +15,8 @@ public abstract class IHero {
     IWeapon equipedWeapon;
     Integer health;
     Integer maxHealth;
+    Integer resource_front;
+    Integer resource_back;
 
     public String getName() { return name; }
 
@@ -55,4 +57,15 @@ public abstract class IHero {
         health -= attackPwr;
     }
 
+    public Integer getResource_back() {
+        return resource_back;
+    }
+
+    public Integer getResource_front() {
+        return resource_front;
+    }
+
+    public void heal(Integer amount) {
+        health += amount;
+    }
 }

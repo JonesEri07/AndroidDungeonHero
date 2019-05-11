@@ -1,7 +1,7 @@
 package com.cre8ivec.ericj.dungeonhero.utility;
 
 public enum ElementType {
-    Basic,
+    None,
     Poison,
     Fire,
     Water,

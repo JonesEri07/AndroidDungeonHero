@@ -30,6 +30,13 @@ public class HeroCustomizeFragment extends Fragment {
 
     private IHero hero;
 
+    private ProgressBar heroHealth;
+    private TextView healthAmount;
+
+    private ImageButton weapon;
+    private TextView attackPwrAmount;
+    private TextView elementType;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,23 +45,26 @@ public class HeroCustomizeFragment extends Fragment {
 
         hero = ((GameActivity)getActivity()).getHero();
 
-        ImageButton weapon = v.findViewById(R.id.imageButton);
-        IWeapon equiped = hero.getEquipedWeapon();
-        //weapon.setImageResource(equiped.getResource());
-
-        ProgressBar heroHealth = v.findViewById(R.id.hero_health2);
+        heroHealth = v.findViewById(R.id.hero_health2);
         heroHealth.setMax(hero.getMaxHealth());
-        heroHealth.setProgress(hero.getHealth());
 
-        TextView healthAmount = v.findViewById(R.id.info_health);
-        String health = Integer.toString(hero.getHealth()) + "/" + Integer.toString(hero.getMaxHealth());
-        healthAmount.setText(health);
+        healthAmount = v.findViewById(R.id.info_health);
 
-        TextView attackPwrAmount = v.findViewById(R.id.info_attackPwr_amount);
-        attackPwrAmount.setText(Integer.toString(equiped.getAttackPwr()));
+        setHeroHealth();
 
-        TextView elementType = v.findViewById(R.id.info_element);
-        elementType.setText(equiped.getElementType().toString());
+        weapon = v.findViewById(R.id.imageButton);
+        weapon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleWeaponButton();
+            }
+        });
+
+        attackPwrAmount = v.findViewById(R.id.info_attackPwr_amount);
+
+        elementType = v.findViewById(R.id.info_element);
+
+        setEquipedWeapon();
 
         Button returnButton = v.findViewById(R.id.info_return_b);
         returnButton.setOnClickListener(new View.OnClickListener() {
@@ -66,5 +76,24 @@ public class HeroCustomizeFragment extends Fragment {
 
         return v;
     }
+
+    public void setHeroHealth() {
+        heroHealth.setProgress(hero.getHealth());
+        String health = Integer.toString(hero.getHealth()) + "/" + Integer.toString(hero.getMaxHealth());
+        healthAmount.setText(health);
+    }
+
+    public void setEquipedWeapon() {
+        IWeapon equiped = hero.getEquipedWeapon();
+        weapon.setImageResource(equiped.getResource());
+        attackPwrAmount.setText(Integer.toString(equiped.getAttackPwr()));
+        elementType.setText(equiped.getElementType().toString());
+    }
+
+    public void handleWeaponButton() {
+        ((GameActivity)getActivity()).toggleWeaponsView();
+    }
+
+
 
 }

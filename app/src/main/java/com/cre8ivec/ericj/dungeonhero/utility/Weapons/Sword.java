@@ -8,7 +8,7 @@ public class Sword extends IWeapon {
     public Sword() {
         name = "Sword";
         attackPwr = 12;
-        elementType = ElementType.Basic;
+        elementType = ElementType.None;
         resource = R.drawable.sword;
     }
 }
