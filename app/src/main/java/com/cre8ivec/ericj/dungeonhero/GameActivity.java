@@ -22,6 +22,8 @@ import com.cre8ivec.ericj.dungeonhero.utility.DungeonFactory.IDungeon;
 import com.cre8ivec.ericj.dungeonhero.utility.Heros.Hero;
 import com.cre8ivec.ericj.dungeonhero.utility.Items.IItem;
 
+import java.util.TreeSet;
+
 public class GameActivity extends FragmentActivity {
 
     private IDungeon dungeon;
@@ -50,7 +52,7 @@ public class GameActivity extends FragmentActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.fragment_manager, new DescriptionFragment()).commit();
 
-
+        TreeSet<String> treeSet = new TreeSet<>();
 
 
     }
