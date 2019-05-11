@@ -5,7 +5,9 @@ import com.cre8ivec.ericj.dungeonhero.utility.Items.Coin;
 import com.cre8ivec.ericj.dungeonhero.utility.Items.Key;
 import com.cre8ivec.ericj.dungeonhero.utility.Items.Rope;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.EarthSlug;
+import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.Goblin;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.NakedMoleBat;
+import com.cre8ivec.ericj.dungeonhero.utility.Monsters.CaveMonsters.Troll;
 import com.cre8ivec.ericj.dungeonhero.utility.Monsters.TowerMonsters.RabidMonk;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.CaveRoom;
 import com.cre8ivec.ericj.dungeonhero.utility.Rooms.Doors.LockedDoor;
@@ -43,7 +45,7 @@ class CaveDungeon extends IDungeon {
         r_0n1.addMonster(new EarthSlug(3));
 
         // r_10
-        CaveRoom r_1n1 = (CaveRoom) r_10.addWestRoom("r_1n1", new UnlockedDoor());
+        CaveRoom r_1n1 = (CaveRoom) r_10.addWestRoom("use coin", new UnlockedDoor());
         CaveRoom r_11 = (CaveRoom) r_10.addEastRoom("r_11", new UnlockedDoor());
 
         // r_1n1
@@ -59,7 +61,16 @@ class CaveDungeon extends IDungeon {
         // r_12
         CaveRoom r_22 = (CaveRoom) r_12.addNorthRoom("r_22", new LockedDoor(new Key()));
 
+        // r_22
+        CaveRoom r23 = (CaveRoom) r_22.addEastRoom("r_23", new UnlockedDoor());
+        CaveRoom r32 = (CaveRoom) r_22.addNorthRoom("r_32", new UnlockedDoor());
+        r_22.addMonster(new Goblin(1));
 
+        // r23
+        r23.addItem(new Sword());
+
+        // r32
+        r32.addMonster(new Troll(1));
 
     }
 

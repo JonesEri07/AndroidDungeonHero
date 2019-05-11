@@ -29,7 +29,7 @@ class TowerDungeon extends IDungeon {
 
     @Override
     public String description() {
-        return "Leering before you, the eerie tower of Gribvash!";
+        return "Leering before you, the eerie tower of Gribnash!";
     }
 
     @Override
