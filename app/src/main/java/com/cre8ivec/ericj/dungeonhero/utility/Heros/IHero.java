@@ -5,7 +5,9 @@ import com.cre8ivec.ericj.dungeonhero.utility.Monsters.IMonster;
 import com.cre8ivec.ericj.dungeonhero.utility.Weapons.IWeapon;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class IHero {
 
@@ -23,13 +25,38 @@ public abstract class IHero {
     public Map<IItem, Integer> getItems() { return items; }
 
     public void addItem(IItem item) {
-        if (items.get(item) == null)
+        Set<IItem> itemKeys = items.keySet();
+        boolean found = false;
+        for (IItem i : itemKeys){
+            if (i.getName().equals(item.getName())) {
+                items.put(i, items.get(i) + 1);
+                found = true;
+            }
+        }
+        if (!found)
             items.put(item, 1);
-        else
-            items.put(item, items.get(item) + 1);
+//
+//        if (items.get(item) == null)
+//            items.put(item, 1);
+//        else
+//            items.put(item, items.get(item) + 1);
     }
 
-    public void useItem(IItem item) { items.remove(item); }
+    public void useItem(IItem item) {
+        Set<IItem> itemKeys = items.keySet();
+        IItem check = null;
+        boolean found = false;
+        for (IItem i : itemKeys){
+            if (i.getName().equals(item.getName())) {
+                items.put(i, items.get(i) - 1);
+                check = i;
+            }
+        }
+        if (check != null) {
+            if (items.get(check) == 0)
+                items.remove(check);
+        }
+    }
 
     public ArrayList<IWeapon> getInventory() { return inventory; }
 
